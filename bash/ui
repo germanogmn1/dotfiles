@@ -1,0 +1,9 @@
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR="4;33"
+export CLICOLOR="auto"
+export LSCOLORS="ExFxCxDxBxegedabagacad"
+
+# print the return value if it's not zero
+PROMPT_COMMAND='ret=$?; [[ $ret -gt 0 ]] && echo "=> $ret "'
+
+PS1="\u@\h: \W\$ "

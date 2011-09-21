@@ -1,0 +1,16 @@
+alias ls="ls -GF"
+alias l="ls"
+alias l1="l -1"
+alias la="ls -A"
+alias la1="la -1" 
+alias ll="ls -lh"
+alias lla="ll -A" 
+
+alias p="pwd"
+
+alias g="git"
+alias gs="git status"
+alias gl="git log"
+alias gc="git commit -m" 
+alias gf="git fetch"
+alias gm="git merge"
