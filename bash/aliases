@@ -14,3 +14,6 @@ alias gl="git log"
 alias gc="git commit -m" 
 alias gf="git fetch"
 alias gm="git merge"
+
+# rails
+alias ber="bundle exec rake"
