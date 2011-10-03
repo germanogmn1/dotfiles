@@ -34,7 +34,7 @@ end
 class Object
   def im(er = nil)
     methods = (self.methods - Object.methods).sort
-    methods.grep(er) if er
+    er ? methods.grep(er) : methods
   end
 end
 
