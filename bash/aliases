@@ -9,6 +9,7 @@ alias lla="ll -A"
 alias p="pwd"
 
 alias g="git"
+alias ga="git add -A"
 alias gs="git status"
 alias gl="git log"
 alias gc="git commit -m" 
@@ -16,4 +17,5 @@ alias gf="git fetch"
 alias gm="git merge"
 
 # rails
+alias be="bundle exec"
 alias ber="bundle exec rake"
