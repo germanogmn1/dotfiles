@@ -1,6 +1,12 @@
-[[ -s ~/dotfiles/bash/aliases ]] && . ~/dotfiles/bash/aliases
-[[ -s ~/dotfiles/bash/ui ]] && . ~/dotfiles/bash/ui
+files_to_load=(
+  ~/dotfiles/bash/aliases
+  ~/dotfiles/bash/ui
+  "$HOME/.rvm/scripts/rvm"
+  `brew --prefix`/etc/bash_completion
+)
+
+for file in ${files_to_load[@]}; do
+  [[ -s $file ]] && . $file
+done
 
 which -s npm && export PATH="`npm bin`:$PATH" # node package manager
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-[[ -s `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
