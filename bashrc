@@ -1,7 +1,6 @@
 files_to_load=(
   ~/dotfiles/bash/aliases
   ~/dotfiles/bash/ui
-  "$HOME/.rvm/scripts/rvm"
   `brew --prefix`/etc/bash_completion
 )
 
