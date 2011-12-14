@@ -1,5 +1,3 @@
-require 'rubygems'
-
 #
 # Setup Awesome Print the default irb output
 #
@@ -32,7 +30,7 @@ end
 # 'im': interesting methods
 #
 class Object
-  def im(er = nil)
+  def im(er=nil)
     methods = (self.methods - Object.methods).sort
     er ? methods.grep(er) : methods
   end

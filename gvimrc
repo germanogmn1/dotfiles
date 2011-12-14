@@ -1,4 +1,5 @@
+colorscheme github
 set guioptions=egmrt
-set guifont=Andale\ Mono:h14
-set lines=30 columns=100
+set guifont=Menlo:h14
+set lines=40 columns=110
 
