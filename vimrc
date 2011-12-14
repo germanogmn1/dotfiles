@@ -16,7 +16,7 @@ set ts=4 sts=4 sw=4 noet ai
 " Indentation by file type
 if has("autocmd")
 	filetype on
-	autocmd FileType ruby,eruby,javascript,yaml setlocal ts=2 sts=2 sw=2
+	autocmd FileType ruby,eruby,javascript,yaml setlocal ts=2 sts=2 sw=2 et
 endif
 
 " Show hiddens
