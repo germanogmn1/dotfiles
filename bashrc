@@ -9,8 +9,7 @@ for file in ${files_to_load[@]}; do
 done
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # node package manager
-which -s npm && export PATH="`npm bin`:$PATH"
+#which -s npm && export PATH="`npm bin`:$PATH"

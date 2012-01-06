@@ -1,7 +1,8 @@
 set nocompatible
 syntax on
+colorscheme default
 
-set number
+set nonumber
 set ruler
 
 " Searching
@@ -16,11 +17,10 @@ set ts=4 sts=4 sw=4 noet ai
 " Indentation by file type
 if has("autocmd")
 	filetype on
-	autocmd FileType ruby,eruby,javascript,yaml setlocal ts=2 sts=2 sw=2 et
+	autocmd FileType ruby,eruby,javascript,yaml setlocal ts=2 sts=2 sw=2 et ai
 endif
 
 " Show hiddens
-set list
 set listchars=tab:▸\ ,eol:¬
 
 " Plugins

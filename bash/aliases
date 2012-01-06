@@ -1,3 +1,12 @@
+alias p="pwd"
+
+take()
+{
+	mkdir -p $1
+	cd $1
+}
+
+# ls
 alias ls="ls -GF"
 alias l="ls"
 alias l1="l -1"
@@ -6,16 +15,11 @@ alias la1="la -1"
 alias ll="ls -lh"
 alias lla="ll -A" 
 
-alias p="pwd"
-
-alias g="git"
+# git
 alias ga="git add -A"
 alias gs="git status"
 alias gl="git log"
-alias gc="git commit -m" 
-alias gf="git fetch"
-alias gm="git merge"
 
-# rails
+# bundler
 alias be="bundle exec"
 alias ber="bundle exec rake"
