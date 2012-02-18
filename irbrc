@@ -31,7 +31,7 @@ class Object
   
   # Local methods
   def lm(er=nil)
-    methods = (self.public_methods - selc.class.superclass.instance_methods).sort
+    methods = (self.public_methods - self.class.superclass.instance_methods).sort
     er ? methods.grep(er) : methods
   end
 end

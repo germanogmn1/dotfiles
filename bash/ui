@@ -6,4 +6,4 @@ export LSCOLORS="ExFxCxDxBxegedabagacad"
 # print the return value if it's not zero
 PROMPT_COMMAND='ret=$?; [[ $ret -gt 0 ]] && echo "=> $ret "'
 
-PS1="\u@\h: \W\$ "
+PS1="\u@\h: \W\$(__git_ps1 "[%s]")$ "
