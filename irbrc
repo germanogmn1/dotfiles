@@ -1,6 +1,17 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
-require 'awesome_print'
+
+# Awesome Print as the default irb output
+begin
+  require 'awesome_print'
+  class IRB::Irb
+    def output_value
+      ap @context.last_value, indent: 2, index: false, limit: 100
+    end
+  end
+rescue Exception => e
+  puts e.message
+end
 
 IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-history" 
@@ -14,13 +25,6 @@ IRB.conf[:PROMPT][:MIN] = {
   :AUTO_INDENT => true
 }
 IRB.conf[:PROMPT_MODE] = :MIN
-
-# Awesome Print as the default irb output
-class IRB::Irb
-  def output_value
-    ap @context.last_value, indent: 2, index: false, limit: 100
-  end
-end
 
 class Object
   # Interesting methods
