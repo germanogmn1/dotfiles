@@ -1,9 +1,10 @@
 [user]
 	name = Germano Nicolini
 	email = germanogmn1@gmail.com
-
 [color]
 	status = auto
 	branch = auto
 	interactive = auto
 	diff = auto
+[core]
+	editor = vim
