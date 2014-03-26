@@ -16,10 +16,9 @@ alias ll="ls -lh"
 alias lla="ll -A" 
 
 # git
-alias ga="git add -A"
-alias gs="git status"
-alias gl="git log"
+alias g="git"
 
 # bundler
 alias be="bundle exec"
 alias ber="bundle exec rake"
+

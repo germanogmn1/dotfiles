@@ -1,16 +1,8 @@
-files_to_load=(
-	~/dotfiles/bash/aliases
-	~/dotfiles/bash/ui
-	~/dotfiles/functions.sh
-	`brew --prefix`/etc/bash_completion
-)
+. ~/dotfiles/bash/aliases
+. ~/dotfiles/bash/ui
+which brew > /dev/null && . `brew --prefix`/etc/bash_completion
 
-for file in ${files_to_load[@]}; do
-	[[ -s $file ]] && . $file
-done
-
-# rbenv
-eval "$(rbenv init -)"
-
-export PATH=~/bin:$PATH
-export CDPATH=.:~
+if which rbenv > /dev/null; then
+	eval "$(rbenv init -)"
+	export PATH="$HOME/.rbenv/bin:$PATH"
+fi

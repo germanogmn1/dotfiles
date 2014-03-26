@@ -8,3 +8,8 @@
 	diff = auto
 [core]
 	editor = vim
+[alias]
+	s = status
+	l = log
+	a = add -A
+

@@ -4,6 +4,7 @@ export CLICOLOR="auto"
 export LSCOLORS="ExFxCxDxBxegedabagacad"
 
 # print the return value if it's not zero
-PROMPT_COMMAND='ret=$?; [[ $ret -gt 0 ]] && echo "=> $ret "'
+hr_command="eval printf '%.0s_' {1..110}; echo"
+PROMPT_COMMAND='ret=$?; [[ $ret -gt 0 ]] && echo "=> $ret"; $hr_command'
 
 PS1="\u@\h: \W\$(__git_ps1 "[%s]")$ "
