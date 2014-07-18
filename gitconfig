@@ -13,3 +13,5 @@
 	l = log
 	a = add -A
 
+[push]
+	default = current

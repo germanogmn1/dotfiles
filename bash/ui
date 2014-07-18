@@ -1,10 +1,7 @@
-export GREP_OPTIONS="--color=auto"
-export GREP_COLOR="4;33"
-export CLICOLOR="auto"
-export LSCOLORS="ExFxCxDxBxegedabagacad"
+_return_cmd='ret=$?; [[ $ret -gt 0 ]] && echo "=> $ret"' # print the return value if it's not zero
+_line_cmd='eval printf "%.0s–" {1..$(tput cols)}; echo' # print a horizontal line after command
+PROMPT_COMMAND="$_return_cmd ; $_line_cmd"
 
-# print the return value if it's not zero
-hr_command="eval printf '%.0s_' {1..110}; echo"
-PROMPT_COMMAND='ret=$?; [[ $ret -gt 0 ]] && echo "=> $ret"; $hr_command'
-
-PS1="\u@\h: \W\$(__git_ps1 "[%s]")$ "
+color_bold="\[\e[0;1m\]"
+color_reset="\[\e[0m\]"
+PS1="$color_bold\u@\h: \W\$(__git_ps1 \"[%s]\")$ $color_reset"

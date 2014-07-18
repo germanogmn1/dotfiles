@@ -7,7 +7,6 @@ take()
 }
 
 # ls
-alias ls="ls -GF"
 alias l="ls"
 alias l1="l -1"
 alias la="ls -A"

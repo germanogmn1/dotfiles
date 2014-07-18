@@ -1,20 +1,34 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
 
-# Awesome Print as the default irb output
-begin
-  require 'awesome_print'
+def force_require_gem(gem_name)
+  begin
+    if defined?(Rails)
+      require Bundler.with_clean_env { `gem which #{gem_name}`.strip }
+    else
+      require gem_name
+    end
+    true
+  rescue Exception => e
+    puts "Failed to require #{gem_name}"
+    false
+  end
+end
+
+if force_require_gem('awesome_print')
   class IRB::Irb
     def output_value
       ap @context.last_value, indent: 2, index: false, limit: 100
     end
   end
-rescue Exception => e
-  puts e.message
+end
+
+if force_require_gem('hirb')
+  Hirb.enable
 end
 
 IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-history" 
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-history"
 
 IRB.conf[:PROMPT][:MIN] = {
   :PROMPT_I => ">> ",
@@ -32,7 +46,7 @@ class Object
     methods = (self.public_methods - Object.instance_methods).sort
     er ? methods.grep(er) : methods
   end
-  
+
   # Local methods
   def lm(er=nil)
     methods = (self.public_methods - self.class.superclass.instance_methods).sort
