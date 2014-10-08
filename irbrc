@@ -1,32 +1,6 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
 
-def force_require_gem(gem_name)
-  begin
-    if defined?(Rails)
-      require Bundler.with_clean_env { `gem which #{gem_name}`.strip }
-    else
-      require gem_name
-    end
-    true
-  rescue Exception => e
-    puts "Failed to require #{gem_name}"
-    false
-  end
-end
-
-if force_require_gem('awesome_print')
-  class IRB::Irb
-    def output_value
-      ap @context.last_value, indent: 2, index: false, limit: 100
-    end
-  end
-end
-
-if force_require_gem('hirb')
-  Hirb.enable
-end
-
 IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-history"
 
@@ -51,6 +25,18 @@ class Object
   def lm(er=nil)
     methods = (self.public_methods - self.class.superclass.instance_methods).sort
     er ? methods.grep(er) : methods
+  end
+end
+
+class Method
+  def edit!(editor = :vim)
+    raise 'no source location' if source_location.nil?
+    arg = case editor
+    when :vim then source_location.join(' +')
+    when :subl then source_location.join(?:)
+    else raise 'no such editor'
+    end
+    system("#{editor} #{arg}")
   end
 end
 
