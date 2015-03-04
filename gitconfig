@@ -8,10 +8,12 @@
 	diff = auto
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
 [alias]
-	s = status
-	l = log
 	a = add -A
-
-[push]
-	default = current
+	co = checkout
+	d = diff
+	dc = diff --cached
+	l = log
+	s = status
+	head = reset HEAD
